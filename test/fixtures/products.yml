@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
+  title: StringOne
   description: MyText
   image_url: MyString
+  price: 100
 
 two:
-  title: MyString
+  title: StringTwo
   description: MyText
   image_url: MyString
+  price: 200

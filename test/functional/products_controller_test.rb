@@ -13,8 +13,8 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
-    assert_difference('Product.count') do
-      post :create, :product => { }
+    assert_difference('Product.count', +1) do
+      post :create, :product => {:title => 'mr big stuff', :price => 3000 }
     end
 
     assert_redirected_to product_path(assigns(:product))
