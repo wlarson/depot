@@ -7,7 +7,7 @@
 </head> 
 <body id="store"> 
 <div id="banner"> 
-<%= image_tag("logo.png") %> 
+<% #<%= image_tag("logo.png") %> 
 <%= @page_title || "Pragmatic Bookshelf" %> 
 </div> 
 <div id="columns"> 
@@ -18,7 +18,11 @@
 <a href="http://www..../contact">Contact</a><br /> 
 </div> 
 <div id="main"> 
-<%= yield :layout %> 
+  <% if flash[:notice] -%> 
+    <div id="notice"><%= flash[:notice] %></div> 
+  <% end -%> 
+  
+  <%= yield :layout %> 
 </div> 
 </div> 
 </body> 
