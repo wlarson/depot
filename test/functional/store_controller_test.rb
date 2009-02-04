@@ -25,9 +25,17 @@ class StoreControllerTest < ActionController::TestCase
     assert_equal 1, cart.items.size
   end
 
+  test "cart can handle bad ids" do 
+    post :add_to_cart, { :id => Product.maximum(:id) + 1 } 
+    assert_response :redirect 
+    assert flash[:notice] 
+  end
+
   test "empty cart empties cart" do
     post :empty_cart
-    assert_nil session['cart']
+    assert_nil session[:cart] 
+    assert_response :redirect 
+    assert flash[:notice]
   end
 
 end
