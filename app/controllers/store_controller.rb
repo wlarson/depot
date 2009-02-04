@@ -1,7 +1,7 @@
 class StoreController < ApplicationController
 
   def index
-    find_cart
+    @cart = find_cart
     @products = Product.find_products_for_sale
   end
 
@@ -14,6 +14,7 @@ class StoreController < ApplicationController
     else 
       @cart = find_cart 
       @cart << product
+      redirect_to_index 
     end 
   end 
 
@@ -27,8 +28,8 @@ class StoreController < ApplicationController
     session[:cart] ||=Cart.new
   end
 
-  def redirect_to_index(msg) 
-    flash[:notice] = msg 
+  def redirect_to_index(msg = nil) 
+    flash[:notice] = msg if msg
     redirect_to :action => 'index' 
   end 
 
