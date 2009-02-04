@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  has_many :order_items
+  
   validates_presence_of :title, :description, :image_url, :price
   validates_uniqueness_of :title
   validates_numericality_of :price
