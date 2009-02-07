@@ -20,7 +20,8 @@ class StoreControllerTest < ActionController::TestCase
 
   test "can add product to cart" do
     post :add_to_cart, :id => products(:one).id
-    assert_response :success
+#    assert_response :success
+    assert_response :redirect # redirect to index
     assert cart = assigns(:cart)
     assert_equal 1, cart.items.size
   end

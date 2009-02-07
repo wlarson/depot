@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: ProductOneTitle
-  description: ProductOneDescription
-  image_url: MyString.jpg
+  title: Product One
+  description: Description
+  image_url: Test.jpg
   price: 100
 
 two:
-  title: ProductTwoTitle
-  description: ProductTwoDescription
-  image_url: MyString.gif
+  title: Product Two
+  description: Description
+  image_url: Test.gif
   price: 200

@@ -12,15 +12,15 @@ class OrderItemsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create order_items" do
-    assert_difference('OrderItems.count') do
-      post :create, :order_items => { }
+  test "should create order_item" do
+    assert_difference('OrderItem.count') do
+      post :create, :order_item => { }
     end
 
-    assert_redirected_to order_items_path(assigns(:order_items))
+    assert_redirected_to order_item_path(assigns(:order_item))
   end
 
-  test "should show order_items" do
+  test "should show order_item" do
     get :show, :id => order_items(:one).id
     assert_response :success
   end
@@ -30,13 +30,13 @@ class OrderItemsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update order_items" do
-    put :update, :id => order_items(:one).id, :order_items => { }
-    assert_redirected_to order_items_path(assigns(:order_items))
+  test "should update order_item" do
+    put :update, :id => order_items(:one).id, :order_item => { }
+    assert_redirected_to order_item_path(assigns(:order_item))
   end
 
-  test "should destroy order_items" do
-    assert_difference('OrderItems.count', -1) do
+  test "should destroy order_item" do
+    assert_difference('OrderItem.count', -1) do
       delete :destroy, :id => order_items(:one).id
     end
 
