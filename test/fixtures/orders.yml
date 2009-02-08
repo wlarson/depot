@@ -2,12 +2,12 @@
 
 one:
   name: Order One
-  address: OrderOneAddress
+  address: address
   email: orderone@email.com
   pay_type: credit card
 
 two:
   name: Order Two
-  address: OrderTwoAddress
+  address: address
   email: ordertwo@email.com
   pay_type: purchase order
