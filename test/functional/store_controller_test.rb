@@ -2,6 +2,19 @@ require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
 
+  def setup
+#    @request.session[:user_id] = users(:one).id    
+  end
+
+  test "store controller is localized" do
+    locale = LANGUAGES.to_a.first.last
+    @request.session[:user_id] = users(:one).id
+    get :index, :locale => locale
+ 
+    translations = YAML.load_file("#{LOCALES_DIRECTORY}#{locale}.yml")
+    assert_match translations[locale]['layout']['store']['side']['questions'], @response.body
+  end
+
   test "session contains cart" do 
     get :index
     assert session[:cart]
@@ -36,7 +49,6 @@ class StoreControllerTest < ActionController::TestCase
     post :empty_cart
     assert_nil session[:cart] 
     assert_response :redirect 
-    assert flash[:notice]
   end
 
 end

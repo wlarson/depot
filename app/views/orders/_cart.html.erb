@@ -1,0 +1,4 @@
+Your Cart
+<%= render(:partial => "cart_item", :collection => cart.items) %>
+Total: <%= number_to_currency(cart.total_price) %>
+<%= button_to "Checkout", :action => 'checkout' %> <%= button_to "Empty cart", :action => :empty_cart %>

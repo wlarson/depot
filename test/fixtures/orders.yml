@@ -4,10 +4,10 @@ one:
   name: Order One
   address: address
   email: orderone@email.com
-  pay_type: credit card
+  pay_type: cc
 
 two:
   name: Order Two
   address: address
   email: ordertwo@email.com
-  pay_type: purchase order
+  pay_type: po

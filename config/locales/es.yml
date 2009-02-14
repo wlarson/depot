@@ -1,0 +1,13 @@
+es:
+  layout:
+    store:
+      title: "Publicaciones de Pragmatic"
+      side:
+        home: "Inicio"
+        questions: "Preguntas"
+        news: "Noticias"
+        contact: "Contacto"
+  store:
+    index:
+      header: "Su Catálogo Pragmático"        
+      add_to_cart: "Agregue al Carro"

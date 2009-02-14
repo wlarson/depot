@@ -26,7 +26,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
-    assert_difference('Product.count') do
+    assert_difference('Product.count', +1) do
       post :create, :product => {
         :title        => 'awesome product',
         :description  => 'awesome product description',

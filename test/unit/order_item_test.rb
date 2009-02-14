@@ -2,6 +2,34 @@ require 'test_helper'
 
 class OrderItemTest < ActiveSupport::TestCase
 
+  test "from cart item" do
+    cart_item = CartItem.new(products(:one))
+
+    order_item = OrderItem.from_cart_item(cart_item)
+    
+    assert_equal products(:one), order_item.product
+    assert_equal 1, order_item.quantity
+    assert_equal products(:one).price, order_item.total_price
+  end
+
+  test "from cart item with many of same product" do
+    cart_item = CartItem.new(products(:one))
+    cart_item.increment_quantity
+    
+    order_item = OrderItem.from_cart_item(cart_item)
+
+    assert_equal products(:one), order_item.product
+    assert_equal 2, order_item.quantity
+    assert_equal cart_item.price, order_item.total_price
+  end
+
+  test "order item has order" do
+    order_item = order_items(:one)
+    order_item.order = orders(:two)
+    order_item.save!
+    assert_equal order(:two), order_item.order
+  end
+
   test "validates presence of order_id" do
     order = OrderItem.new
     assert ! order.valid?
