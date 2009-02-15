@@ -27,13 +27,7 @@ class OrderItemTest < ActiveSupport::TestCase
     order_item = order_items(:one)
     order_item.order = orders(:two)
     order_item.save!
-    assert_equal order(:two), order_item.order
-  end
-
-  test "validates presence of order_id" do
-    order = OrderItem.new
-    assert ! order.valid?
-    assert order.errors.on(:order_id)
+    assert_equal orders(:two), order_item.order
   end
 
   test "validates presence of product_id" do
@@ -52,13 +46,6 @@ class OrderItemTest < ActiveSupport::TestCase
     order = OrderItem.new
     assert ! order.valid?
     assert order.errors.on(:total_price)
-  end
-
-  test "order_id must be a number" do
-    order_item = order_items(:one)
-    order_item.order_id = 'hello world!'
-    assert ! order_item.valid?
-    assert order_item.errors.on(:order_id)
   end
 
   test "product_id must be a number" do

@@ -2,10 +2,6 @@ require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
 
-  def setup
-#    @request.session[:user_id] = users(:one).id    
-  end
-
   test "store controller is localized" do
     locale = LANGUAGES.to_a.first.last
     @request.session[:user_id] = users(:one).id
